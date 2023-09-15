@@ -1,0 +1,70 @@
+{
+  "Cliente": [
+    {
+      "usuario": "checho0417",
+      "contraseña": "checho0417",
+      "nombre": "sergio",
+      "tipo_documento": "cc",
+      "num_documento": "23456",
+      "id": 1
+    },
+    {
+      "usuario": "heidy",
+      "contraseña": "234567",
+      "nombre": "jajnaj",
+      "tipo_documento": "cd",
+      "num_documento": "2345678",
+      "id": 2
+    }
+  ],
+  "Tickets": [
+    {
+      "idTickets": 1,
+      "empresa": "papitas",
+      "mensaje_empleado": "reinicie el dispositivo",
+      "solicitud_cliente": "caido el sistema operativo"
+    },
+    {
+      "idTickets": 2,
+      "empresa": "papitas",
+      "mensaje_empleado": "reinicie el router del internet",
+      "solicitud_cliente": "pin muy alto presenta bugs"
+    },
+    {
+      "idTickets": 3,
+      "empresa": "papitas",
+      "mensaje_empleado": "reinicie el router del internet",
+      "solicitud_cliente": "pin muy alto presenta bugs"
+    }
+  ],
+  "Empleado": [
+    {
+      "id_empleado": 1,
+      "usuario": "zoelandia",
+      "contraseña": "zoe2403",
+      "nombre": "zoe saavedra duarte ",
+      "tipo_documento": "tarjeta de identidad",
+      "num_documento": 9018543
+    },
+    {
+      "id_empleado": 2,
+      "usuario": "josefito",
+      "contraseña": "jose2403",
+      "nombre": "jose saavedra duarte ",
+      "tipo_documento": "cedula de identidad",
+      "num_documento": 304952
+    }
+  ],
+  "Auth": [
+    {
+      "usuario": "we4rty",
+      "contraseña": "234567",
+      "id": 1
+    },
+    {
+      "usuario": "3e23w0",
+      "contraseña": "wer234",
+      "id": 2
+    }
+  ]
+}

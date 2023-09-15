@@ -1,25 +1,80 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {useState, useEffect} from 'react';
+import { Link, useNavigate} from "react-router-dom";
+import APIInvoke from '../../utils/APIInvoke'
+import swal from 'sweetalert';
+
+
 
 const CrearCuenta = () => {
+
+    const navigate = useNavigate();
+
+    const[cliente, setCliente]= useState({
+      usuario:'',
+      contraseña:'',
+      nombre:'',
+      tipo_documento:'',
+      num_documento:''
+    }); 
+
+    const{usuario,contraseña,nombre,tipo_documento,num_documento }= cliente;
+
+    const onChange = (e) => {
+        setCliente({
+          ...cliente,
+          [e.target.name]: e.target.value
+      })
+    }
+
+    useEffect(() =>{
+        document.getElementById("usuario").focus();
+      },[])
+
+    const crearCuenta = async () =>{
+
+      const  data={
+        usuario: cliente.usuario,
+        contraseña: cliente.contraseña,
+        nombre: cliente.nombre,
+        tipo_documento: cliente.tipo_documento,
+        num_documento: cliente.num_documento
+      }
+      const response = await APIInvoke.invokePOST(`/Cliente`, data);
+      navigate("/")
+      console.log (response)
+    
+
+
+    } 
+  
+    const onSubmit = (e) => {
+      e.preventDefault();
+      crearCuenta();
+    }
+
+
   return (
     <div className="hold-transition login-page">
       <div className="login-box">
         <div className="login-logo">
           <Link to={"#"}>
-            <b>INICIA TU SESION</b>
+            <b>REGISTRARSE</b>
           </Link>
         </div>
-      </div>
 
       <div className="card">
         <div className="card-body login-card-body">
-          <form action="../../index3.html" method="post">
+          <form onSubmit={onSubmit}>
+
             <div className="input-group mb-3">
-              <input
-                type="email"
+              <input type="text"
                 className="form-control"
-                placeholder="Email"
+                placeholder="Usuario"
+                id="usuario"
+                name="usuario"
+                values={usuario}
+                onChange={onChange}
+                required
               />
               <div className="input-group-append">
                 <div className="input-group-text">
@@ -27,11 +82,16 @@ const CrearCuenta = () => {
                 </div>
               </div>
             </div>
+
             <div className="input-group mb-3">
-              <input
-                type="password"
+              <input type="password"
                 className="form-control"
-                placeholder="Password"
+                placeholder="Contraseña"
+                id="contraseña"
+                name="contraseña"
+                values={contraseña}
+                onChange={onChange}
+                required
               />
               <div className="input-group-append">
                 <div className="input-group-text">
@@ -39,44 +99,74 @@ const CrearCuenta = () => {
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-8">
-                <div className="icheck-primary">
-                  <input type="checkbox" id="remember" />
-                  <label htmlFor="remember">Remember Me</label>
+
+            <div className="input-group mb-3">
+              <input type="text"
+                className="form-control"
+                placeholder="Nombre"
+                id="nombre"
+                name="nombre"
+                values={nombre}
+                onChange={onChange}
+                required
+              />
+              <div className="input-group-append">
+                <div className="input-group-text">
+                  <span className="fas fa-envelope" />
                 </div>
               </div>
-              {/* /.col */}
-              <div className="col-4">
-                <button type="submit" className="btn btn-primary btn-block">
-                  Sign In
-                </button>
-              </div>
-              {/* /.col */}
             </div>
+
+            <div className="input-group mb-3">
+              <input type="text"
+                className="form-control"
+                placeholder="Tipo Documento"
+                id="tipo_documento"
+                name="tipo_documento"
+                values={tipo_documento}
+                onChange={onChange}
+                required
+              />
+              <div className="input-group-append">
+                <div className="input-group-text">
+                  <span className="fas fa-envelope" />
+                </div>
+              </div>
+            </div>
+            
+            <div className="input-group mb-3">
+              <input 
+                type="number"
+                className="form-control"
+                placeholder="Numero Documento"
+                name="num_documento"
+                id="num_documento"
+                values={num_documento}
+                onChange={onChange}
+                required
+              />
+              <div className="input-group-append">
+                <div className="input-group-text">
+                  <span className="fas fa-envelope" />
+                </div>
+              </div>
+            </div>
+
+              <div className="col-15">
+                  <button type="submit" className="btn btn-primary btn-block">
+                    REGISTRARME
+                  </button>
+              </div>
           </form>
           <div className="social-auth-links text-center mb-3">
-            <p>- OR -</p>
-            <Link to={"#"} className="btn btn-block btn-primary">
-              <i className="fab fa-facebook mr-2" /> Sign in using Facebook
-            </Link>
-            <Link to={"#"} className="btn btn-block btn-danger">
-              <i className="fab fa-google-plus mr-2" /> Sign in using Google+
+            <Link to={"/"} className="btn btn-block btn-danger">
+               INICIAR SESION
             </Link>
           </div>
-          {/* /.social-auth-links */}
-          <p className="mb-1">
-            <Link to={"#"}>I forgot my password</Link>
-          </p>
-          <p className="mb-0">
-            <Link to={"#"} className="text-center">
-              Register a new membership
-            </Link>
-          </p>
-        </div>
-        {/* /.login-card-body */}
       </div>
     </div>
+        </div>
+      </div>
   );
 };
 
