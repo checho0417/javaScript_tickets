@@ -9,9 +9,9 @@ const Navbar = () => {
                     <Link to={"#"} className="nav-link" data-widget="pushmenu"  role="button"><i className="fas fa-bars" /></Link>
                 </li>
                 <li className="nav-item d-none d-sm-inline-block">
-                    <a href="../../index3.html" className="nav-link">Salir</a>
+                    <Link to={"../../index3.html"} className="nav-link">Salir</Link>
                 </li>     
-            </ul> 
+            </ul>   
             <ul className="navbar-nav ml-auto">    
                 <li className="nav-item">
                     <Link to={"#"} className="nav-link" data-widget="fullscreen"  role="button">

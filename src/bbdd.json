@@ -7,34 +7,35 @@
       "tipo_documento": "cc",
       "num_documento": "23456",
       "id": 1
-    },
-    {
-      "usuario": "heidy",
-      "contraseña": "234567",
-      "nombre": "jajnaj",
-      "tipo_documento": "cd",
-      "num_documento": "2345678",
-      "id": 2
     }
   ],
   "Tickets": [
     {
       "idTickets": 1,
       "empresa": "papitas",
-      "mensaje_empleado": "reinicie el dispositivo",
       "solicitud_cliente": "caido el sistema operativo"
+    },
+    {
+      "idTickets": 24,
+      "empresa": "heidy",
+      "solicitud_cliente": "tienes muchas tareas"
     },
     {
       "idTickets": 2,
       "empresa": "papitas",
-      "mensaje_empleado": "reinicie el router del internet",
       "solicitud_cliente": "pin muy alto presenta bugs"
     },
     {
       "idTickets": 3,
       "empresa": "papitas",
-      "mensaje_empleado": "reinicie el router del internet",
+      "mensaje_empleado": null,
       "solicitud_cliente": "pin muy alto presenta bugs"
+    },
+    {
+      "idTickets": 4,
+      "empresa": "chechito",
+      "mensaje_empleado": "holat",
+      "solicitud_cliente": "chechodksfmvn"
     }
   ],
   "Empleado": [
@@ -53,18 +54,6 @@
       "nombre": "jose saavedra duarte ",
       "tipo_documento": "cedula de identidad",
       "num_documento": 304952
-    }
-  ],
-  "Auth": [
-    {
-      "usuario": "we4rty",
-      "contraseña": "234567",
-      "id": 1
-    },
-    {
-      "usuario": "3e23w0",
-      "contraseña": "wer234",
-      "id": 2
     }
   ]
 }

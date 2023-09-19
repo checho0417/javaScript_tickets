@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   return (
@@ -10,20 +11,28 @@ const Menu = () => {
         data-accordion="false"
       >
         <li className="nav-item">
-          <a href="../widgets.html" className="nav-link">
+          <Link to={"/home"} className="nav-link">
             <i className="nav-icon fas fa-th" />
             <p>
-              Widgets
+              Inicio
             </p>
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="../widgets.html" className="nav-link">
-            <i className="nav-icon fas fa-th" />
+          <Link to={"/Tickets "} className="nav-link">
+            <i className="nav-icon fas fa-envelope" />
             <p>
-              Widgets
+              Solicitudes
             </p>
-          </a>
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to={"/NewSolicitud "} className="nav-link">
+            <i className="nav-icon fas fa-envelope" />
+            <p>
+              Queja O Solicitud
+            </p>
+          </Link>
         </li>
       </ul>
     </nav>
