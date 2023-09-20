@@ -38,7 +38,7 @@ const Respuesta = () => {
 
     // Actualiza el ticket correspondiente en el bbdd.json con la nueva respuesta
     bbdd.Tickets = bbdd.Tickets.map((ticket) => {
-      if (ticket.idTickets === parseInt(id)) {
+      if (ticket.id === parseInt(id)) {
         return {
           ...ticket,
           mensaje_empleado: respuesta,

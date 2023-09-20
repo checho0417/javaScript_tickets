@@ -71,14 +71,14 @@ const TicketsSolicitudes = () => {
                 <tbody>
                   {tickets.map((ticket, index) => (
                     <tr key={index}>
-                      <td>{ticket.idTickets}</td>
+                      <td>{ticket.id}</td>
                       <td>{ticket.empresa}</td>
                       <td>{ticket.solicitud_cliente}</td>
                       <td>{ticket.mensaje_empleado}</td>
                       <td>
                         {ticket.mensaje_empleado === null ? (
                           <Link
-                            to={`/Respuesta/${ticket.idTickets}`} // Configura la ruta de navegación
+                            to={`/Respuesta/${ticket.id}`} // Configura la ruta de navegación
                             className="btn btn-sm btn-primary"
                             onClick={handleResponderClick}
                           >

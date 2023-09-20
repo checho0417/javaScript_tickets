@@ -15,7 +15,6 @@ function App() {
     <Fragment>
       <Router>
         <Routes>
-
           <Route path="/" exact element = {<Login/>}/>
           <Route path="/crearCuenta" exact element = {<CrearCuenta/>}/>
           <Route path='/Home' exact element ={<Home/>}/>

@@ -11,31 +11,29 @@
   ],
   "Tickets": [
     {
-      "idTickets": 1,
-      "empresa": "papitas",
-      "solicitud_cliente": "caido el sistema operativo"
+      "empresa": "234",
+      "solicitud_cliente": "dcfv",
+      "id": 1
     },
     {
-      "idTickets": 24,
-      "empresa": "heidy",
-      "solicitud_cliente": "tienes muchas tareas"
+      "empresa": "compu",
+      "solicitud_cliente": "quemandose",
+      "id": 2
     },
     {
-      "idTickets": 2,
-      "empresa": "papitas",
-      "solicitud_cliente": "pin muy alto presenta bugs"
+      "empresa": "compu",
+      "solicitud_cliente": "dañado",
+      "id": 3
     },
     {
-      "idTickets": 3,
-      "empresa": "papitas",
-      "mensaje_empleado": null,
-      "solicitud_cliente": "pin muy alto presenta bugs"
+      "empresa": "jij",
+      "solicitud_cliente": "ybghygb",
+      "id": 4
     },
     {
-      "idTickets": 4,
-      "empresa": "chechito",
-      "mensaje_empleado": "holat",
-      "solicitud_cliente": "chechodksfmvn"
+      "empresa": "jij",
+      "solicitud_cliente": "ybghygb",
+      "id": 5
     }
   ],
   "Empleado": [
