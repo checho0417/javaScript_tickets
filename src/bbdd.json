@@ -3,10 +3,20 @@
     {
       "usuario": "checho0417",
       "contraseña": "checho0417",
-      "nombre": "sergio",
+      "nombre": "checho",
       "tipo_documento": "cc",
-      "num_documento": "23456",
+      "num_documento": "21343",
+      "rol": "administrador",
       "id": 1
+    },
+    {
+      "usuario": "alejandro",
+      "contraseña": "alejosaavedra",
+      "nombre": "checho",
+      "tipo_documento": "cc",
+      "num_documento": "34567",
+      "rol": "admin",
+      "id": 2
     }
   ],
   "Tickets": [
@@ -34,6 +44,16 @@
       "empresa": "jij",
       "solicitud_cliente": "ybghygb",
       "id": 5
+    },
+    {
+      "empresa": "checho",
+      "solicitud_cliente": "3456",
+      "id": 6
+    },
+    {
+      "empresa": "computadoresColombia",
+      "solicitud_cliente": "sistema operativo esta relentizado",
+      "id": 7
     }
   ],
   "Empleado": [

@@ -14,10 +14,11 @@ const CrearCuenta = () => {
       contraseña:'',
       nombre:'',
       tipo_documento:'',
-      num_documento:''
+      num_documento:'',
+      rol:'',
     }); 
 
-    const{usuario,contraseña,nombre,tipo_documento,num_documento }= cliente;
+    const{usuario,contraseña,nombre,tipo_documento,num_documento,rol}= cliente;
 
     const onChange = (e) => {
         setCliente({
@@ -37,7 +38,8 @@ const CrearCuenta = () => {
         contraseña: cliente.contraseña,
         nombre: cliente.nombre,
         tipo_documento: cliente.tipo_documento,
-        num_documento: cliente.num_documento
+        num_documento: cliente.num_documento,
+        rol: cliente.rol
       }
       const response = await APIInvoke.invokePOST(`/Cliente`, data);
       navigate("/")
@@ -142,6 +144,23 @@ const CrearCuenta = () => {
                 name="num_documento"
                 id="num_documento"
                 values={num_documento}
+                onChange={onChange}
+                required
+              />
+              <div className="input-group-append">
+                <div className="input-group-text">
+                  <span className="fas fa-envelope" />
+                </div>
+              </div>
+            </div>
+
+            <div className="input-group mb-3">
+              <input type="text"
+                className="form-control"
+                placeholder="rol"
+                id="rol"
+                name="rol"
+                values={rol}
                 onChange={onChange}
                 required
               />

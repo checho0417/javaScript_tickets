@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import clienteEncotrado from '../paginas/auth/login'
 
-const Menu = () => {
+const Menu = (clienteEncontrado) => {
   return (
     <nav className="mt-2">
       <ul
@@ -11,7 +12,7 @@ const Menu = () => {
         data-accordion="false"
       >
         <li className="nav-item">
-          <Link to={"/home"} className="nav-link">
+          <Link to={`/home/${clienteEncontrado.id}`} className="nav-link">
             <i className="nav-icon fas fa-th" />
             <p>
               Inicio
@@ -19,7 +20,7 @@ const Menu = () => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link to={"/Tickets "} className="nav-link">
+          <Link to={"/Tickets"}className="nav-link">
             <i className="nav-icon fas fa-envelope" />
             <p>
               Solicitudes
@@ -31,6 +32,14 @@ const Menu = () => {
             <i className="nav-icon fas fa-envelope" />
             <p>
               Queja O Solicitud
+            </p>
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to={"/Perfil "} className="nav-link">
+            <i className="nav-icon fas fa-envelope" />
+            <p>
+              Mi Perfil
             </p>
           </Link>
         </li>

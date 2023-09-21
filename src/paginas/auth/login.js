@@ -1,36 +1,34 @@
-import React,{useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import APIInvoke from '../../utils/APIInvoke';    
 import swal from 'sweetalert';
-import Cliente from '../../bbdd.json'
+import Cliente from '../../bbdd.json';
 
 const Login = () => {
-
-  //para redireccionar un componente a otro
   const navigate = useNavigate();
 
-  // definir el estado inicial de las variables
   const [cliente, setCliente] = useState({
     usuario: '',
     contraseña: ''
-    });
+  });
 
-  const{ usuario, contraseña } = cliente;
+  const { usuario, contraseña } = cliente;
+ 
+  const [clienteEncontrado, setClienteEncontrado] = useState(null); // Aquí almacenaremos el cliente encontrado
 
   const onChange = (e) => {
     setCliente({
       ...cliente,
-      [e.target.name]: e.target.value 
-    })
+      [e.target.name]: e.target.value
+    });
   }
 
-  useEffect(() =>{
+  useEffect(() => {
     document.getElementById("usuario").focus();
-  },[]);
+  }, []);
 
   const iniciarSesion = async () => {
-      if (usuario.length < 5) {
-      const msg = "El campo de usuario debe tener almenos 6 digitos";
+    if (usuario.length < 5) {
+      const msg = "El campo de usuario debe tener al menos 6 dígitos";
       swal({
         title: 'Error',
         text: msg,
@@ -45,7 +43,7 @@ const Login = () => {
           }
         }
       });
-    }else if (contraseña.length < 6) {
+    } else if (contraseña.length < 6) {
       const msg = "La contraseña debe ser mayor a 5 caracteres";
       swal({
         title: 'Error',
@@ -62,57 +60,52 @@ const Login = () => {
         }
       });
     } else {
-
-      const data = {
-        usuario: Cliente.usuario,
-        contraseña: Cliente.contraseña
-      };
-
       const clienteEncontrado = Cliente.Cliente.find(cliente => cliente.usuario === usuario);
-      
+
       if (clienteEncontrado) {
-        // Realiza la llamada a la API aquí o trabaja con los datos del cliente encontrado
         console.log("Inicio de sesión exitoso");
         console.log("Datos del cliente:", clienteEncontrado);
-        
-            if(clienteEncontrado.contraseña === contraseña){
-              const msg = "INICIO DE SESION CORRECTAMENTE";
-              
-            swal({
-              title: 'Exito',
-              text: msg,
-              icon: 'success',
-              buttons: {
-                confirm: {
-                  text: 'OK',
-                  value: true,
-                  visible: true,
-                  className: 'btn btn-danger',
-                  closeModal: true
-                }
+
+        if (clienteEncontrado.contraseña === contraseña) {
+          const msg = "INICIO DE SESIÓN CORRECTAMENTE";
+
+          swal({
+            title: 'Éxito',
+            text: msg,
+            icon: 'success',
+            buttons: {
+              confirm: {
+                text: 'OK',
+                value: true,
+                visible: true,
+                className: 'btn btn-danger',
+                closeModal: true
               }
-            });
-              navigate("/home")
-            }else{
-            const msg = "contraseña Incorrecta";
-            swal({
-              title: 'Error',
-              text: msg,
-              icon: 'error',
-              buttons: {
-                confirm: {
-                  text: 'OK',
-                  value: true,
-                  visible: true,
-                  className: 'btn btn-danger',
-                  closeModal: true
-                }
-              }
-            });
             }
-        // Realiza las acciones necesarias después del inicio de sesión exitoso
+          });
+
+          setClienteEncontrado(clienteEncontrado); // Almacenar el cliente encontrado
+          navigate(`/home/${clienteEncontrado.id}/${clienteEncontrado.rol}`);
+
+        } else {
+          const msg = "Contraseña Incorrecta";
+          swal({
+            title: 'Error',
+            text: msg,
+            icon: 'error',
+            buttons: {
+              confirm: {
+                text: 'OK',
+                value: true,
+                visible: true,
+                className: 'btn btn-danger',
+                closeModal: true
+              }
+            }
+          });
+        }
       } else {
-        const msg = "El usuario no existe \n Intenta Nuevamente";
+        const msg = "El usuario no existe. Intenta nuevamente.";
         swal({
           title: 'Error',
           text: msg,
@@ -130,7 +123,6 @@ const Login = () => {
       }
     }
   }
-  
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -142,7 +134,7 @@ const Login = () => {
       <div className="login-box">
         <div className="login-logo">
           <Link to={"#"}>
-            <b>INICIA TU SESION</b>
+            <b>INICIA TU SESIÓN</b>
           </Link>
         </div>
       </div>
@@ -172,7 +164,7 @@ const Login = () => {
 
             <div className="input-group mb-3">
               <input
-                type="password" 
+                type="password"
                 className="form-control"
                 placeholder="Contraseña"
                 id="contraseña"
@@ -189,15 +181,15 @@ const Login = () => {
             </div>
 
             <div className="col-15">
-                <button type="submit" className="btn btn-primary btn-block">
-                  Ingresar
-                </button>
+              <button type="submit" className="btn btn-primary btn-block">
+                Ingresar
+              </button>
             </div>
-            
+
           </form>
           <div className="social-auth-links text-center mb-3">
             <Link to={"CrearCuenta"} className="btn btn-block btn-danger">
-               Crear Una Cuenta
+              Crear Una Cuenta
             </Link>
           </div>
         </div>

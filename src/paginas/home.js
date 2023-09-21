@@ -5,6 +5,7 @@ import ContentHeader from '../componentes/ContentHeader';
 import Footer from '../componentes/Footer';
 import { Link } from 'react-router-dom';
 
+
 const Home = () => {
     return (
       <div className="wrapper">
